@@ -2,6 +2,7 @@ package org.selimsahin.menu;
 
 import org.selimsahin.entity.Customer;
 import org.selimsahin.services.CustomerService;
+import org.selimsahin.menu.util.ConsoleUtility;
 
 import java.util.List;
 import java.util.Scanner;
@@ -14,8 +15,6 @@ public class CustomerMenu {
     private final Scanner scanner;
     private final CustomerService customerService;
 
-    private static final String PRESS_ENTER = "\nPress Enter to continue...";
-
     public CustomerMenu(Scanner scanner, CustomerService customerService) {
         this.scanner = scanner;
         this.customerService = customerService;
@@ -25,7 +24,7 @@ public class CustomerMenu {
         boolean backToMainMenu = false;
 
         while (!backToMainMenu) {
-            clearConsole();
+            ConsoleUtility.clearConsole();
             displayCustomerMenu();
 
             int choice = getUserChoice();
@@ -72,7 +71,7 @@ public class CustomerMenu {
     }
 
     private void createCustomer() {
-        clearConsole(); // Clear console
+        ConsoleUtility.clearConsole();
 
         System.out.println("\nEnter customer details:");
 
@@ -89,29 +88,28 @@ public class CustomerMenu {
         customerService.save(customer);
         System.out.println("\nCustomer created successfully.");
 
-        System.out.print(PRESS_ENTER);
-        scanner.nextLine();
+        ConsoleUtility.pressEnterToContinue(scanner);
     }
 
     private void viewAllCustomers() {
-        clearConsole(); // Clear console
+        ConsoleUtility.clearConsole();
+
         List<Customer> customers = customerService.findAll();
 
         if (customers.isEmpty()) {
             System.out.println("No customers found.");
         } else {
+            System.out.println("\nAll Customers:\n");
             for (Customer customer : customers) {
-                System.out.println("\nAll Customers:\n");
                 System.out.println(customer);
             }
         }
 
-        System.out.print(PRESS_ENTER);
-        scanner.nextLine();
+        ConsoleUtility.pressEnterToContinue(scanner);
     }
 
     private void findCustomerById() {
-        clearConsole(); // Clear console
+        ConsoleUtility.clearConsole();
 
         System.out.print("\nEnter customer ID: ");
         long id = scanner.nextLong();
@@ -125,12 +123,11 @@ public class CustomerMenu {
             System.out.println("\nCustomer not found with ID: " + id);
         }
 
-        System.out.print(PRESS_ENTER);
-        scanner.nextLine();
+        ConsoleUtility.pressEnterToContinue(scanner);
     }
 
     private void deleteCustomer() {
-        clearConsole(); // Clear console
+        ConsoleUtility.clearConsole();
 
         System.out.print("\nEnter customer ID to delete: ");
         long id = scanner.nextLong();
@@ -142,12 +139,11 @@ public class CustomerMenu {
             System.out.println("\nCustomer not found with ID: " + id);
         }
 
-        System.out.print(PRESS_ENTER);
-        scanner.nextLine();
+        ConsoleUtility.pressEnterToContinue(scanner);
     }
 
     private void updateCustomer() {
-        clearConsole(); // Clear console
+        ConsoleUtility.clearConsole();
 
         System.out.print("\nEnter customer ID to update: ");
         long id = scanner.nextLong();
@@ -178,12 +174,6 @@ public class CustomerMenu {
             System.out.println("\nCustomer not found with ID: " + id);
         }
 
-        System.out.print(PRESS_ENTER);
-        scanner.nextLine();
-    }
-
-    private void clearConsole() {
-        System.out.print("\033[H\033[2J"); // Clear console
-        System.out.flush();
+        ConsoleUtility.pressEnterToContinue(scanner);
     }
 }
