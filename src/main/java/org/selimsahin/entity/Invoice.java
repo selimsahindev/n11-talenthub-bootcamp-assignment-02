@@ -1,25 +1,27 @@
 package org.selimsahin.entity;
 
+import java.time.LocalDate;
+
 /**
- *  @author selimsahindev
+ * @author selimsahindev
  */
 public class Invoice {
     private Long id;
-    private String name;
     private String description;
     private double amount;
+    private LocalDate date;
     private Customer customer;
 
     public Invoice() {
         // no-arg constructor
     }
 
-    public Invoice(Long id, String name, String description, double amount, Customer customer) {
+    public Invoice(Long id, String description, double amount, Customer customer, LocalDate date) {
         this.id = id;
-        this.name = name;
         this.description = description;
         this.amount = amount;
         this.customer = customer;
+        this.date = date;
     }
 
     public Long getId() {
@@ -28,14 +30,6 @@ public class Invoice {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDescription() {
@@ -54,6 +48,14 @@ public class Invoice {
         this.amount = amount;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
     public Customer getCustomer() {
         return customer;
     }
@@ -66,9 +68,9 @@ public class Invoice {
     public String toString() {
         return "Invoice{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", amount=" + amount +
+                ", date=" + date +
                 ", customer=" + customer +
                 '}';
     }
@@ -76,9 +78,9 @@ public class Invoice {
     public String toStringWithoutCustomer() {
         return "Invoice{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", amount=" + amount +
+                ", date=" + date +
                 '}';
     }
 
@@ -96,10 +98,10 @@ public class Invoice {
         if (Double.compare(invoice.amount, amount) != 0) {
             return false;
         }
-        if (!id.equals(invoice.id)) {
+        if (!date.equals(invoice.date)) {
             return false;
         }
-        if (!name.equals(invoice.name)) {
+        if (!id.equals(invoice.id)) {
             return false;
         }
         if (!description.equals(invoice.description)) {
@@ -113,10 +115,10 @@ public class Invoice {
         int result;
         long temp;
         result = id.hashCode();
-        result = 31 * result + name.hashCode();
         result = 31 * result + description.hashCode();
         temp = Double.doubleToLongBits(amount);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + date.hashCode();
         result = 31 * result + customer.hashCode();
         return result;
     }

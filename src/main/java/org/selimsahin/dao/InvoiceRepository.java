@@ -55,6 +55,32 @@ public class InvoiceRepository {
         return customerInvoices;
     }
 
+    // Returns a list of invoices with an amount greater than or equal to the given amount.
+    public List<Invoice> findByAmountGTE(double amount) {
+        List<Invoice> customerInvoices = new ArrayList<>();
+
+        for (Invoice invoice : invoices.values()) {
+            if (invoice.getAmount() >= amount) {
+                customerInvoices.add(invoice);
+            }
+        }
+
+        return customerInvoices;
+    }
+
+    // Returns a list of invoices with an amount less than the given amount.
+    public List<Invoice> findByAmountLT(double amount) {
+        List<Invoice> customerInvoices = new ArrayList<>();
+
+        for (Invoice invoice : invoices.values()) {
+            if (invoice.getAmount() < amount) {
+                customerInvoices.add(invoice);
+            }
+        }
+
+        return customerInvoices;
+    }
+
     public boolean delete(Long id) {
         return invoices.remove(id) != null;
     }

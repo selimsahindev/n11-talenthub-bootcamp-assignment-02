@@ -38,7 +38,22 @@ public class InvoiceServiceImpl implements InvoiceService {
     }
 
     @Override
+    public List<Invoice> findByAmountGTE(double amount) {
+        return invoiceRepository.findByAmountGTE(amount);
+    }
+
+    @Override
+    public List<Invoice> findByAmountLT(double amount) {
+        return invoiceRepository.findByAmountLT(amount);
+    }
+
+    @Override
     public boolean delete(Long id) {
         return invoiceRepository.delete(id);
+    }
+
+    @Override
+    public boolean update(Invoice invoice) {
+        return false;
     }
 }

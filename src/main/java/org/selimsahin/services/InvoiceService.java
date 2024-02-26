@@ -17,5 +17,11 @@ public interface InvoiceService {
 
     List<Invoice> findByCustomerId(Long customerId);
 
+    List<Invoice> findByAmountGTE(double amount);
+
+    List<Invoice> findByAmountLT(double amount);
+
     boolean delete(Long id);
+
+    boolean update(Invoice invoice);
 }
