@@ -19,6 +19,17 @@ public class CustomerRepository {
     // Made private to prevent anyone creating a new instance.
     private CustomerRepository() {
         customers = new HashMap<>();
+
+        populateInitialData();
+    }
+
+    private void populateInitialData() {
+        // Populate the repository with some initial data.
+        save(new Customer("Selim", "Sahin", "selim.sahin@example.com"));
+        save(new Customer("Alice", "Smith", "alice.smith@example.com"));
+        save(new Customer("Michael", "Johnson", "michael.johnson@example.com"));
+        save(new Customer("Emily", "Brown", "emily.brown@example.com"));
+        save(new Customer("David", "Taylor", "david.taylor@example.com"));
     }
 
     // Made synchronized to prevent multiple threads from creating multiple instances.

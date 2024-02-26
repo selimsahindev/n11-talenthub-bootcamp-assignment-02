@@ -29,9 +29,10 @@ public class InvoiceRepository {
     }
 
     public Invoice save(Invoice invoice) {
-        long id = nextId++;
-        invoice.setId(id);
-        invoices.put(id, invoice);
+        if (invoice.getId() == null) {
+            invoice.setId(nextId++);
+        }
+        invoices.put(invoice.getId(), invoice);
         return invoice;
     }
 
