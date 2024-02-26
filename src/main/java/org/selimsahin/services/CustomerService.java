@@ -4,7 +4,7 @@ import org.selimsahin.entity.Customer;
 
 import java.util.List;
 
-/*
+/**
  *  @author selimsahindev
  */
 public interface CustomerService {

@@ -2,7 +2,7 @@ package org.selimsahin.entity;
 
 import java.util.List;
 
-/*
+/**
  *  @author selimsahindev
  */
 public class Customer {

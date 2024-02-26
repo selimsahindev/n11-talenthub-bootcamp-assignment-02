@@ -1,6 +1,6 @@
 package org.selimsahin.entity;
 
-/*
+/**
  *  @author selimsahindev
  */
 public class Invoice {
