@@ -30,7 +30,6 @@ public class CustomerRepository {
     }
 
     public Customer save(Customer customer) {
-        // Generate a new id and set it to the customer.
         long id = nextId++;
         customer.setId(id);
 
