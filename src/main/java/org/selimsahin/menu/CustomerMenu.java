@@ -152,14 +152,30 @@ public class CustomerMenu {
         Customer existingCustomer = customerService.findById(id);
         if (existingCustomer != null) {
             System.out.println("Enter new customer details:");
-            System.out.print("Enter customer name: ");
+
+            // Get existing values for reference
+            String defaultName = existingCustomer.getName();
+            String defaultSurname = existingCustomer.getSurname();
+            String defaultEmail = existingCustomer.getEmail();
+
+            // Get new values from user input
+            System.out.print("Enter customer name (" + defaultName + "): ");
             String name = scanner.nextLine();
+            if (name.isEmpty()) {
+                name = defaultName; // Use default value if input is empty
+            }
 
-            System.out.print("Enter customer surname: ");
+            System.out.print("Enter customer surname (" + defaultSurname + "): ");
             String surname = scanner.nextLine();
+            if (surname.isEmpty()) {
+                surname = defaultSurname; // Use default value if input is empty
+            }
 
-            System.out.print("Enter customer email: ");
+            System.out.print("Enter customer email (" + defaultEmail + "): ");
             String email = scanner.nextLine();
+            if (email.isEmpty()) {
+                email = defaultEmail; // Use default value if input is empty
+            }
 
             existingCustomer.setName(name);
             existingCustomer.setSurname(surname);
@@ -176,4 +192,5 @@ public class CustomerMenu {
 
         ConsoleUtility.pressEnterToContinue(scanner);
     }
+
 }
