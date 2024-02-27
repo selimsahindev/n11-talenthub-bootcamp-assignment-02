@@ -2,7 +2,9 @@
 
 This repository contains the second homework assignment for the Maven and Java fundamentals provided by **Patika.dev**. The application is a Maven project that demonstrates various functionalities related to managing customers and their invoices.
 
-## Entities
+**Author:** [**selimsahindev**](https://github.com/selimsahindev/)
+
+# Entities
 
 ### [**Customer**](src/main/java/org/selimsahin/entity/Customer.java) Entity:
 
@@ -37,7 +39,7 @@ This repository contains the second homework assignment for the Maven and Java f
 
 
 
-## Services
+# Services
 [**CompanyService**](src/main/java/org/selimsahin/services/CompanyService.java)
 The CompanyService interface provides methods to manage company entities within the application. These methods include:
 
@@ -46,6 +48,8 @@ The CompanyService interface provides methods to manage company entities within 
 - `findById(Long id)`: Finds a company by its unique identifier.
 - `delete(Long id)`: Deletes a company by its unique identifier.
 - `update(Company company)`: Updates an existing company entity.
+
+<br />
 
 [**CustomerService**](src/main/java/org/selimsahin/services/CustomerService.java)
 The CustomerService interface offers functionalities to manage customer entities in the application. It includes the following methods:
@@ -57,10 +61,14 @@ The CustomerService interface offers functionalities to manage customer entities
 - `delete(Long id)`: Deletes a customer by its unique identifier.
 - `update(Customer customer)`: Updates an existing customer entity.
 
+<br />
+
 [**InvoiceCalculatorService**](src/main/java/org/selimsahin/services/InvoiceCalculatorService.java)
 The InvoiceCalculatorService interface provides a method to calculate the average amount of invoices. Its method includes:
 
 - `calculateAverageAmount(List<Invoice> invoices)`: Calculates the average amount of invoices provided in the list.
+
+<br />
 
 [**InvoiceService**](src/main/java/org/selimsahin/services/InvoiceService.java)
 The InvoiceService interface offers functionalities to manage invoice entities within the application. These methods include:
@@ -77,7 +85,9 @@ The InvoiceService interface offers functionalities to manage invoice entities w
 
 These service interfaces define the contract for managing company, customer, and invoice entities within the application, providing essential functionalities for CRUD (Create, Read, Update, Delete) operations and invoice amount calculations.
 
-## Maven Commands
+# Usage
+
+### Maven Commands:
 
 To compile and run the Maven project, you can use the following commands:
 
@@ -86,7 +96,41 @@ mvn clean install    # Cleans the project, compiles the source code, and package
 java -jar target/homework-02-1.0-SNAPSHOT.jar    # Executes the Java application
 ```
 
-<br />
-<br />
+# Screenshots
 
-**Author:** [**selimsahindev**](https://github.com/selimsahindev/)
+### Main Menu
+![Main Menu](screenshots/main-menu.png)
+
+### Customer Menu
+![Customer Menu](screenshots/customer-menu.png)
+
+### Company Menu
+![Company Menu](screenshots/company-menu.png)
+
+### Invoice Menu
+![Invoice Menu](screenshots/invoice-menu.png)
+
+### List of Customers
+![List of Customers](screenshots/list-customers.png)
+
+### Search Customer
+![Search Customer](screenshots/search-customer.png)
+
+### Update Customer
+![Update Customer](screenshots/update-customer.png)
+
+### List of Companies
+![List of Companies](screenshots/list-companies.png)
+
+### List of Invoices
+![List of Invoices](screenshots/list-invoices.png)
+
+### Invoices with Amount Less Than 500
+![Invoices with Amount Less Than 500](screenshots/invoices-lt-500.png)
+
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
