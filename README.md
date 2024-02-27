@@ -2,6 +2,8 @@
 
 This repository contains the second homework assignment for the Maven and Java fundamentals provided by **Patika.dev**. The application is a Maven project that demonstrates various functionalities related to managing customers and their invoices.
 
+You can find preview images below 🩵
+
 **Author:** [**selimsahindev**](https://github.com/selimsahindev/)
 
 # Entities
