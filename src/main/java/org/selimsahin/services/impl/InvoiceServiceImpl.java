@@ -13,8 +13,8 @@ public class InvoiceServiceImpl implements InvoiceService {
 
     private final InvoiceRepository invoiceRepository;
 
-    public InvoiceServiceImpl(InvoiceRepository invoiceRepository) {
-        this.invoiceRepository = invoiceRepository;
+    public InvoiceServiceImpl() {
+        this.invoiceRepository = InvoiceRepository.getInstance();
     }
 
     @Override
@@ -35,6 +35,11 @@ public class InvoiceServiceImpl implements InvoiceService {
     @Override
     public List<Invoice> findByCustomerId(Long customerId) {
         return invoiceRepository.findByCustomerId(customerId);
+    }
+
+    @Override
+    public List<Invoice> findByCustomerIds(List<Long> customerIds) {
+        return invoiceRepository.findByCustomerIds(customerIds);
     }
 
     @Override

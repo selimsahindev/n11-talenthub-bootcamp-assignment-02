@@ -17,6 +17,8 @@ public interface InvoiceService {
 
     List<Invoice> findByCustomerId(Long customerId);
 
+    List<Invoice> findByCustomerIds(List<Long> customerIds);
+
     List<Invoice> findByAmountGTE(double amount);
 
     List<Invoice> findByAmountLT(double amount);

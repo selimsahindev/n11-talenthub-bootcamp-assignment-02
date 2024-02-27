@@ -15,6 +15,8 @@ public interface CustomerService {
 
     Customer findById(Long id);
 
+    List<Customer> searchByKeyword(String keyword);
+
     boolean delete(Long id);
 
     boolean update(Customer customer);

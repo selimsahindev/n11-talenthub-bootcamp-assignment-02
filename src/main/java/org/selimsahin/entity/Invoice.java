@@ -76,14 +76,14 @@ public class Invoice {
 
     @Override
     public String toString() {
-        return "Invoice{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", amount=" + amount +
-                ", date=" + date +
-                ", customer=" + customer +
-                ", company=" + company +
-                '}';
+        return "Invoice {" +
+                "\n\tid = " + id + "," +
+                "\n\tdescription = '" + description + "'," +
+                "\n\tamount = '" + amount + "'," +
+                "\n\tdate = '" + date + "'," +
+                "\n\tcustomer = " + customer + "," +
+                "\n\tcompany = " + company +
+                "\n}";
     }
 
     @Override

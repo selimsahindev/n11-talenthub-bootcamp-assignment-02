@@ -33,6 +33,13 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public List<Customer> searchByKeyword(String keyword) {
+        return customerRepository.findAll().stream()
+                .filter(customer -> customer.getName().toLowerCase().contains(keyword.toLowerCase()))
+                .toList();
+    }
+
+    @Override
     public boolean delete(Long id) {
         return customerRepository.delete(id);
     }

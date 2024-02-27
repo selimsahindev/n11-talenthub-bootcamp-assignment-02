@@ -2,6 +2,8 @@ package org.selimsahin.menu;
 
 import org.selimsahin.services.CompanyService;
 import org.selimsahin.services.CustomerService;
+import org.selimsahin.services.InvoiceCalculatorService;
+import org.selimsahin.services.InvoiceService;
 
 import java.util.Scanner;
 
@@ -13,15 +15,26 @@ public class MenuManager {
     private final Scanner scanner;
     private final CustomerService customerService;
     private final CompanyService companyService;
+    private final InvoiceService invoiceService;
+    private final InvoiceCalculatorService invoiceCalculatorService;
     private final CustomerMenu customerMenu;
     private final CompanyMenu companyMenu;
+    private final InvoiceMenu invoiceMenu;
 
-    public MenuManager(Scanner scanner, CustomerService customerService, CompanyService companyService) {
+    public MenuManager(Scanner scanner,
+                       CustomerService customerService,
+                       CompanyService companyService,
+                       InvoiceService invoiceService,
+                       InvoiceCalculatorService invoiceCalculatorService
+    ) {
         this.scanner = scanner;
         this.customerService = customerService;
         this.companyService = companyService;
+        this.invoiceService = invoiceService;
+        this.invoiceCalculatorService = invoiceCalculatorService;
         this.customerMenu = new CustomerMenu(scanner, customerService);
         this.companyMenu = new CompanyMenu(scanner, companyService);
+        this.invoiceMenu = new InvoiceMenu(scanner, invoiceService, invoiceCalculatorService);
     }
 
     public void runMainMenu() {
@@ -40,8 +53,7 @@ public class MenuManager {
                     companyMenu.runCompanyMenu();
                     break;
                 case 3:
-                    // Implement manageInvoices() method
-                    System.out.println("Manage Invoices feature coming soon...");
+                    invoiceMenu.runInvoiceMenu();
                     break;
                 case 4:
                     exit = true;

@@ -41,16 +41,19 @@ public class CustomerMenu {
                     findCustomerById();
                     break;
                 case 4:
-                    deleteCustomer();
+                    searchCustomerByKeyword();
                     break;
                 case 5:
-                    updateCustomer();
+                    deleteCustomer();
                     break;
                 case 6:
+                    updateCustomer();
+                    break;
+                case 7:
                     backToMainMenu = true;
                     break;
                 default:
-                    System.out.println("Invalid choice. Please enter a number between 1 and 6.");
+                    System.out.println("Invalid choice. Please enter a number between 1 and 7.");
             }
         }
     }
@@ -60,9 +63,10 @@ public class CustomerMenu {
         System.out.println("1. Create Customer");
         System.out.println("2. View All Customers");
         System.out.println("3. Find Customer by ID");
-        System.out.println("4. Delete Customer");
-        System.out.println("5. Update Customer");
-        System.out.println("6. Back to Main Menu");
+        System.out.println("4. Search Customer by Keyword");
+        System.out.println("5. Delete Customer");
+        System.out.println("6. Update Customer");
+        System.out.println("7. Back to Main Menu");
         System.out.print("\nEnter your choice: ");
     }
 
@@ -121,6 +125,25 @@ public class CustomerMenu {
             System.out.println(customer);
         } else {
             System.out.println("\nCustomer not found with ID: " + id);
+        }
+
+        ConsoleUtility.pressEnterToContinue(scanner);
+    }
+
+    private void searchCustomerByKeyword() {
+        ConsoleUtility.clearConsole();
+
+        System.out.print("\nEnter keyword to search: ");
+        String keyword = scanner.nextLine();
+
+        List<Customer> customers = customerService.searchByKeyword(keyword);
+        if (customers.isEmpty()) {
+            System.out.println("No customers found with keyword: " + keyword);
+        } else {
+            System.out.println("\nCustomers found with keyword '" + keyword + "':\n");
+            for (Customer customer : customers) {
+                System.out.println(customer);
+            }
         }
 
         ConsoleUtility.pressEnterToContinue(scanner);

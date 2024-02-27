@@ -22,21 +22,20 @@ public class CompanyRepository {
         populateInitialData();
     }
 
+    public static synchronized CompanyRepository getInstance() {
+        if (instance == null) {
+            instance = new CompanyRepository();
+        }
+        return instance;
+    }
+
     private void populateInitialData() {
-        // Populate the repository with some initial data.
         save(new Company("Apple", "Electronics"));
         save(new Company("Mercedes", "Automotive"));
         save(new Company("Oracle", "Software"));
         save(new Company("Microsoft", "Software"));
         save(new Company("Amazon", "E-commerce"));
         save(new Company("Facebook", "Social Media"));
-    }
-
-    public static synchronized CompanyRepository getInstance() {
-        if (instance == null) {
-            instance = new CompanyRepository();
-        }
-        return instance;
     }
 
     public Company save(Company company) {

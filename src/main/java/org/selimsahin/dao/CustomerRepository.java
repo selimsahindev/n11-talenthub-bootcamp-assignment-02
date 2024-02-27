@@ -23,21 +23,20 @@ public class CustomerRepository {
         populateInitialData();
     }
 
-    private void populateInitialData() {
-        // Populate the repository with some initial data.
-        save(new Customer("Selim", "Sahin", "selim.sahin@example.com"));
-        save(new Customer("Alice", "Smith", "alice.smith@example.com"));
-        save(new Customer("Michael", "Johnson", "michael.johnson@example.com"));
-        save(new Customer("Emily", "Brown", "emily.brown@example.com"));
-        save(new Customer("David", "Taylor", "david.taylor@example.com"));
-    }
-
     // Made synchronized to prevent multiple threads from creating multiple instances.
     public static synchronized CustomerRepository getInstance() {
         if (instance == null) {
             instance = new CustomerRepository();
         }
         return instance;
+    }
+
+    private void populateInitialData() {
+        save(new Customer("Selim", "Sahin", "selim.sahin@example.com"));
+        save(new Customer("Alice", "Smith", "alice.smith@example.com"));
+        save(new Customer("Michael", "Johnson", "michael.johnson@example.com"));
+        save(new Customer("Emily", "Brown", "emily.brown@example.com"));
+        save(new Customer("David", "Taylor", "david.taylor@example.com"));
     }
 
     public Customer save(Customer customer) {
